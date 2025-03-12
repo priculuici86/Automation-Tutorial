@@ -41,23 +41,29 @@ public class MostenirePracticeFormTest extends SharedData {
         By emailElement = By.xpath("//input[@placeholder='name@example.com']");
         String emailValue = "iancuana@yahoo.com";
         elementHelper.fillLocator(emailElement,emailValue);
-
-        By genderFemaleElement = By.id("gender-radio-2");
 /// ////////////////////////////////////////////////////////////////////////////////////////
         // E necesar sa parc. POLIMORFISMUL pt a rezolva codul m. jos
-        executor.executeScript("arguments[0].click();", genderFemaleElement);
+
+        By genderFemaleElement = By.id("gender-radio-2");
+        elementHelper.clickJsLocator( genderFemaleElement);
         String genderValue = "Female";
-        List<WebElement> genderOptionalList = driver.findElements(By.xpath("//input[@name='gender']"));
+        By genderOptionalElement = By.xpath("//input[@name='gender']");
+        List<WebElement> genderOptionalList = driver.findElements(genderOptionalElement);
+// !!! CAND AVEM LINIILE ALBASTRE STANGA, AC. INDICA CA SISTEMUL STIE DE O VERSIUNE A CODULUI SI SUNT MODIFICARI LA AC.
+// DAND CLICK PE ALBASTRU NE ARATA CODUL  ANTERIOR SI CEL MODIFICAT, NOI PUTANT REVENI ORICAND LA CEL ANTERIOR.
+// Fisierul scris cu ALBASTRU inseamna ca - Git-ul stie de ac. fisier si in el au aparut  modificari;
+// Fis. cu ROSU - nu stie numica;
+// Fis. cu VERDE - e nou sau la adaugat;
 
         if (genderValue.equals("Mail")) {
-            executor.executeScript("arguments[0].click();", genderOptionalList.get(0));
+            elementHelper.clickJsLocator(genderOptionalList.get(0));
         }
         if (genderValue.equals("Femail")) {
-            executor.executeScript("arguments[0].click();", genderOptionalList.get(1));
+           elementHelper.clickJsLocator(genderOptionalList.get(1));
         }
 
         if (genderValue.equals("Other")) {
-            executor.executeScript("arguments[0].click();", genderOptionalList.get(2));
+            elementHelper.clickJsLocator(genderOptionalList.get(2));
         }
 // ///////////////////////////////////////////////////////////////////////////////////////////////
         By pfonNrElement = By.xpath("//input[@placeholder='Mobile Number']");
