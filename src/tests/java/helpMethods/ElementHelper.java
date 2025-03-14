@@ -3,6 +3,7 @@ package helpMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
@@ -34,7 +35,7 @@ public class ElementHelper {
     //3.Metoda click-ului JS executor, dar inainte face wait-ul e 2 in 1
 
     public void clickJsLocator(By locator) {
-        waitForElementVisible(locator);
+
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", driver.findElement(locator));
     }
@@ -57,6 +58,25 @@ public class ElementHelper {
         waitForElementVisible(locator);
         driver.findElement(locator).sendKeys(value);
         driver.findElement(locator).sendKeys(key);
+    }
+    // Ac metoda primeste un locator(orice locator) si un mesaj la care  te astepti, asteapta dp mesajul respectiv,
+    // ia textul ac. si valideaza ca actual message este cel la care te astepti /expected message
+    public void validateTextLocator(By locator, String expected){
+        waitForElementVisible(locator);
+        String actualMessage = driver.findElement(locator).getText();
+        Assert.assertEquals(actualMessage, expected);
+    }
+    //Valideaza continutul textului de pe un element
+    public void validateTextContainsElement(WebElement element, String text){
+        waitForElementVisible(element);
+        Assert.assertTrue(element.getText().contains(text));
+    }
+    //Metoda care face clear/ element si dupa editeaza valoarea respectiva
+
+    public void clearFilledLocator(By locator, String text){
+        waitForElementVisible(locator);
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
     }
 
     }

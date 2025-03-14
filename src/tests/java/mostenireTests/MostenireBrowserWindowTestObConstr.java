@@ -30,7 +30,7 @@ public class MostenireBrowserWindowTestObConstr extends SharedData {
         elementHelper.clickJsLocator(alertsFrameWindowsMenu);
 
         By browserWindowsSubmenu = By.xpath("//span[text ( )='Browser Windows']");
-        elementHelper.clickLocator(browserWindowsSubmenu);
+        elementHelper.clickJsLocator(browserWindowsSubmenu);
 
         By newTabClick = By.id("tabButton");
         elementHelper.clickJsLocator(newTabClick);

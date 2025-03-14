@@ -143,70 +143,72 @@ public class MostenirePracticeFormTest extends SharedData {
         String CityValue = "Delhi";
 //        cityInputElement.sendKeys(CityValue);
 //        cityInputElement.sendKeys(Keys.ENTER);
-        elementHelper.fillPressLocator(cityElement,CityValue, Keys.ENTER);
+        elementHelper.fillPressLocator(cityInputElement,CityValue, Keys.ENTER);
 
        By submitElement = By.id("submit");
        elementHelper.clickLocator(submitElement);
 
-//1 Accesam tab."Thanks for submitting the form" si comparam rezultatele
-
-        By thankElement = By.id("example-modal-sizes-title-lg");
 
  //       PN. AICI AM LUCRAT 26.02.25 ////////////////////////////////////////////////////
 
+        //1 Accesam tab."Thanks for submitting the form" si comparam rezultatele
 
-
-        // 2 Aici in continuare trebuie sa validam expacted/actual result adica tab. cu mes."Thanks for submitting the form"
+        By thankElement = By.id("example-modal-sizes-title-lg");
         String expectedMessage = "Thanks for submitting the form";
-
-        //3  Aici luam textul / mesajut tab.
-        String actualMessage = thankElement.getText();
-        //4  Cu ac. sintaxa verificam egalitatea expected/ actual result
-        Assert.assertEquals(expectedMessage, actualMessage);
+        elementHelper.validateTextLocator(thankElement, expectedMessage);
+//        String actualMessage = thankElement.getText();
+//        Assert.assertEquals(expectedMessage, actualMessage);
 
         //1. Aici am luat lista cu toate R. (Ca sa comparam partea stanga tab. cu dreapta pe fiecare rand)
 
+        By rowsListElement = By.xpath("//tbody/tr");
         List<WebElement> rowsList = driver.findElements(By.xpath("//tbody/tr"));
 
-        Assert.assertTrue(rowsList.get(0).getText().contains("Student Name"));
+//        Assert.assertTrue(rowsList.get(0).getText().contains("Student Name"));
+        elementHelper.validateTextContainsElement(rowsList.get(0),"Student Name");
 
-        Assert.assertTrue(rowsList.get(0).getText().contains(firstNameValue));
+        elementHelper.validateTextContainsElement(rowsList.get(0),firstNameValue);
+        elementHelper.validateTextContainsElement(rowsList.get(0),lastNameValue);
 
-        Assert.assertTrue(rowsList.get(0).getText().contains(lastNameValue));
+        elementHelper.validateTextContainsElement(rowsList.get(1),"Student Email");
+        elementHelper.validateTextContainsElement(rowsList.get(1), emailValue);
 
-        Assert.assertTrue(rowsList.get(1).getText().contains("Student Email"));
-        Assert.assertTrue(rowsList.get(1).getText().contains(emailValue));
+        elementHelper.validateTextContainsElement(rowsList.get(2), "Gender");
+        elementHelper.validateTextContainsElement(rowsList.get(2), genderValue);
 
-        Assert.assertTrue(rowsList.get(2).getText().contains("Gender"));
-        Assert.assertTrue(rowsList.get(2).getText().contains(genderValue));
-
-        Assert.assertTrue(rowsList.get(3).getText().contains("Mobile"));
-        Assert.assertTrue(rowsList.get(3).getText().contains(pfonNrValue));
-
+       elementHelper.validateTextContainsElement(rowsList.get(3),"Mobile");
+        elementHelper.validateTextContainsElement(rowsList.get(3), pfonNrValue);
 
 //1 Subjects, aici avem m multe stringuri/ 1r. ca sa nu scriem atata cod,
 // avem nev. de o metoda sa puna toate 3 String. / 1 R , SA OBTINEM (I.A. chat GPT)MESAJ:
 // "String care sa contina toate elementele din lista delimitate cu spatiu" REZ:
 
         String subjectStrElement = String.join(", ", subjects);
-        Assert.assertTrue(rowsList.get(5).getText().contains("Subjects"));
-        Assert.assertTrue(rowsList.get(5).getText().contains(subjectStrElement));
+       elementHelper.validateTextContainsElement(rowsList.get(5), subjectStrElement);
+
+       elementHelper.validateTextContainsElement(rowsList.get(5),"Arts" );
+       elementHelper.validateTextContainsElement(rowsList.get(5),"Maths" );
+       elementHelper.validateTextContainsElement(rowsList.get(5),"Biology" );
 
         String hobbiesOption = String.join(", ", hobbies);
-        Assert.assertTrue(rowsList.get(6).getText().contains("Hobbies"));
+        elementHelper.validateTextContainsElement(rowsList.get(6),"Hobbies");
+        elementHelper.validateTextContainsElement(rowsList.get(6),"Sports");
+        elementHelper.validateTextContainsElement(rowsList.get(6),"Reading");
         System.out.println(hobbiesOption);
 
 // Verifică dacă textul din rândul 8 (indexul 7) conține cuvintele "Picture" și calea imaginii
         String rowText = rowsList.get(7).getText();
-        Assert.assertTrue(rowText.contains("Picture"));
+        elementHelper.validateTextContainsElement(rowsList.get(7), "Picture");
+        elementHelper.validateTextContainsElement(rowsList.get(7),"WP_20180504_006.jpg");
         Assert.assertTrue(rowText.contains(file.getName()));
 
-        Assert.assertTrue(rowsList.get(8).getText().contains("Address"));
-        Assert.assertTrue(rowsList.get(8).getText().contains(currentAddressValue));
+        elementHelper.validateTextContainsElement(rowsList.get(8), "Address");
+        elementHelper.validateTextContainsElement(rowsList.get(8),currentAddressValue);
 
-        Assert.assertTrue(rowsList.get(9).getText().contains("State and City"));
-        Assert.assertTrue(rowsList.get(9).getText().contains(stateValue));
-        Assert.assertTrue(rowsList.get(9).getText().contains(CityValue));
+        elementHelper.validateTextContainsElement(rowsList.get(9), "State and City" );
+        elementHelper.validateTextContainsElement(rowsList.get(9), stateValue);
+        elementHelper.validateTextContainsElement(rowsList.get(9), CityValue);
+
 
     }
 }

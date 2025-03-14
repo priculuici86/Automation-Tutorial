@@ -22,16 +22,28 @@ public class MostenireFrameTest extends SharedData {
         By frameSubmenu = By.xpath("//span[text()='Frames']");
         elementHelper.clickJsLocator(frameSubmenu);
 
+//        driver.switchTo().frame("frame1");
+//
+//       By textElement = By.id("sampleHeading");
+//        System.out.println(textElement.getText());
+//
+//        driver.switchTo().parentFrame();
+//        driver.switchTo().frame("frame2");
+//
+//       By textElement2 = By.id("sampleHeading");
+//        System.out.println(textElement2.getText());
+
         driver.switchTo().frame("frame1");
 
-       By textElement = By.id("sampleHeading");
+        WebElement textElement = driver.findElement(By.id("sampleHeading"));
         System.out.println(textElement.getText());
 
         driver.switchTo().parentFrame();
         driver.switchTo().frame("frame2");
 
-       By textElement2 = By.id("sampleHeading");
+        WebElement textElement2 = driver.findElement(By.id("sampleHeading"));
         System.out.println(textElement2.getText());
+
 
     }
 }
