@@ -1,9 +1,8 @@
-package mostenireTests;
+package Tests;
 
 import helpMethods.ElementHelper;
 import helpMethods.PageHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -107,7 +106,8 @@ public class MostenirePracticeFormTest extends SharedData {
 
             String curentText = hobbiesOptionList.get(index).getText();
             if (hobbies.contains(curentText)) {
-                hobbiesOptionList.get(index).click();
+//                hobbiesOptionList.get(index).click();
+                elementHelper.clickJsLocator(hobbiesOptionList.get(index));
             }
         }
         /// ///////////////////////////////////////////////////////////////////////////
@@ -162,7 +162,7 @@ public class MostenirePracticeFormTest extends SharedData {
         //1. Aici am luat lista cu toate R. (Ca sa comparam partea stanga tab. cu dreapta pe fiecare rand)
 
         By rowsListElement = By.xpath("//tbody/tr");
-        List<WebElement> rowsList = driver.findElements(By.xpath("//tbody/tr"));
+        List<WebElement> rowsList = driver.findElements(rowsListElement);
 
 //        Assert.assertTrue(rowsList.get(0).getText().contains("Student Name"));
         elementHelper.validateTextContainsElement(rowsList.get(0),"Student Name");

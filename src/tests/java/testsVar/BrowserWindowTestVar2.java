@@ -1,4 +1,4 @@
-package mostenireTests;
+package testsVar;
 
 import helpMethods.ElementHelper;
 import helpMethods.TabWindowHelper;
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import sharedData.SharedData;
 
-public class MostenireBrowserWindowTestObConstr extends SharedData {
+public class BrowserWindowTestVar2 extends SharedData {
 /// /Aplicam ideea pt care trebuie sa folosim Obiectul si  Constructorul in automation.
 //// Refactorizarea- este implementarea de fiecare data a unui cod pt rezolv. unei situatii,
 ////Astfel, dublicand f. mul codul, pt. a evita acest lucru apelam la Ob. Constr. cu care v-om face

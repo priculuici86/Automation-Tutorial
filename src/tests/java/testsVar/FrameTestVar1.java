@@ -1,13 +1,10 @@
-package tests;
+package testsVar;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import sharedData.SharedData;
 
-import java.time.Duration;
-
-public class FrameTest extends SharedData {
+public class FrameTestVar1 extends SharedData {
 
  // Un "iFrame"  este o pagina mica intr-o pag. mare (principala) si poate fi identificat dupa atributu:
  // Nume, Id sau WebElement

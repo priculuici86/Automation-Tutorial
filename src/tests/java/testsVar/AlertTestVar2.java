@@ -1,18 +1,23 @@
-package mostenireTests;
+package testsVar;
 
 import helpMethods.AlertHelper;
 import helpMethods.ElementHelper;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import pages.IndexPage;
 import sharedData.SharedData;
 
-public class MostenireAlertTest extends SharedData {
+public class AlertTestVar2 extends SharedData {
 
     @Test
     public void metodaTest() {
+
         ElementHelper elementHelper = new ElementHelper(driver);
         AlertHelper alertHelper= new AlertHelper(driver);
 
+        IndexPage indexPage =new IndexPage(driver);
+        indexPage.enterOnAlertFrameWindowMenu();
+        indexPage.enterOnAlertFrameWindowSubmenu();
 
         By alertsWindowsMenu = By.xpath("//h5[text( )='Alerts, Frame & Windows']");
         elementHelper.clickJsLocator(alertsWindowsMenu);

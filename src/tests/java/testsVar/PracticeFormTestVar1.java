@@ -1,7 +1,6 @@
-package tests;
+package testsVar;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import sharedData.SharedData;
@@ -10,7 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeFormTest extends SharedData {
+public class PracticeFormTestVar1 extends SharedData {
 
 
     @Test

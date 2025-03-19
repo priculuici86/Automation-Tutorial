@@ -1,19 +1,14 @@
-package tests;
+package testsVar;
 
-import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import sharedData.SharedData;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.Set;
 
-public class AlertTest extends SharedData {
+public class AlertTestVar1 extends SharedData {
 
     @Test
     public void metodaTest() {

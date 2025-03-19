@@ -59,6 +59,7 @@ public class ElementHelper {
         driver.findElement(locator).sendKeys(value);
         driver.findElement(locator).sendKeys(key);
     }
+    // Ac. metoda valideaza textul de pe un element cu un locator
     // Ac metoda primeste un locator(orice locator) si un mesaj la care  te astepti, asteapta dp mesajul respectiv,
     // ia textul ac. si valideaza ca actual message este cel la care te astepti /expected message
     public void validateTextLocator(By locator, String expected){
@@ -66,7 +67,7 @@ public class ElementHelper {
         String actualMessage = driver.findElement(locator).getText();
         Assert.assertEquals(actualMessage, expected);
     }
-    //Valideaza continutul textului de pe un element
+    //Valideaza continutul textului de pe un element la modul general de pe un Web Element
     public void validateTextContainsElement(WebElement element, String text){
         waitForElementVisible(element);
         Assert.assertTrue(element.getText().contains(text));
