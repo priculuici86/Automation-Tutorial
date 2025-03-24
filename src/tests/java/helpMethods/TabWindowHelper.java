@@ -14,10 +14,19 @@ public class TabWindowHelper{
     public TabWindowHelper(WebDriver driver) {
         this.driver = driver;
     }
+
     //2 Am facut 2 metode pt a implementa codul si apela tot timpul de aici,  specific wind.tab
+
+    public void switchToSpecificTabWindow1(String value){
+        driver.switchTo().frame("frame1");
+    }
+
     public void switchToSpecificTabWindow(int index){
+
         List<String> tabs= new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(index));
+
+
 
     }
     public void closeCurrentTabWindow(){
@@ -26,3 +35,6 @@ public class TabWindowHelper{
     }
 
 }
+
+
+
