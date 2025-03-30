@@ -1,6 +1,7 @@
 package helpMethods;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.devtools.v129.css.model.Value;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -24,6 +25,11 @@ public class ElementHelper {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(locator));
     }
+    public void waitForElementsVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
 
     //2. Metoda click-ului simplu
     public void clickLocator(By locator) {
@@ -49,7 +55,7 @@ public class ElementHelper {
     //4. Metoda cu care scriem ceva pe un element - "firstNameElement.sendKeys(firstNameValue);"
 
     public void fillLocator(By locator, String value) {
-        waitForElementVisible(locator);
+//        waitForElementVisible(locator);
         driver.findElement(locator).sendKeys(value);
     }
     // Metoda pt scris si apasat buton
@@ -80,6 +86,13 @@ public class ElementHelper {
         driver.findElement(locator).sendKeys(text);
     }
 
+
+//    public void clearFilledLocator(By locator, String value) {
+//        waitForElementVisible(locator);
+//        driver.findElement(locator).clear();
     }
+
+
+
 
 

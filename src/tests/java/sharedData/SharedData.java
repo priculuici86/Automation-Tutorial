@@ -20,9 +20,9 @@ public class SharedData {
         driver.get("https://demoqa.com");
 
     }
-
-    @AfterMethod
-    public void clearEnviroment(){
-        driver.quit();
-    }
+//
+//    @AfterMethod
+//    public void clearEnviroment(){
+//        driver.quit();
+//    }
 }

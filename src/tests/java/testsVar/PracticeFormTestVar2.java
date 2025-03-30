@@ -1,4 +1,4 @@
-package Tests;
+package testsVar;
 
 import helpMethods.ElementHelper;
 import helpMethods.PageHelper;
@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MostenirePracticeFormTest extends SharedData {
+public class PracticeFormTestVar2 extends SharedData {
 
 
     @Test

@@ -1,4 +1,4 @@
-package Tests;
+package testsVar;
 
 import helpMethods.AlertHelper;
 import helpMethods.ElementHelper;
@@ -10,7 +10,7 @@ import sharedData.SharedData;
 
 import java.util.List;
 
-public class MostenireWebTableTest extends SharedData {
+public class WebTableTestVar2 extends SharedData {
 
     @Test
     public void metodaTest() {
